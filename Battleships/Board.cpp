@@ -5,21 +5,19 @@
 using namespace std;
 
 
-
 Board::Board()
 {
     // initialize board
     for (int i = 0; i < size; i++) {
 
         for (int j = 0; j < size; j++) {
-            board[i][j] = 0;
+            board[j][i] = 0;
         }
     }
 }
 Board::~Board()
 {
 }
-
 
 
 void Board:: printBoard() {
@@ -74,10 +72,20 @@ void Board:: placeBoat(int x, int y, int len, char dir) {
        }
        else {
            posY++;
-       }
-    
+       } 
     }
-
-
 }
 
+void Board:: setState(int x, int y, int state) {
+    board[x][y] = state;
+}
+
+void Board:: placeHit(int x, int y) {
+    if (board[x][y] == 1) {
+        setState(x, y, -1);
+    }
+    else {
+        setState(x,y,2);
+    }
+
+}
