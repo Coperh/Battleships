@@ -7,9 +7,12 @@
 class Board
 {
 public:
-    void printBoard();
     Board();
     ~Board();
+    void printBoard();
+    void placeBoat(int x, int y, int len, char dir);
+    
 private:
-    int board[BOARD_SIZE][BOARD_SIZE];
+    static int const size = BOARD_SIZE;
+    int board[size][size];
 };
